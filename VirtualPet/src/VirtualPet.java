@@ -1,24 +1,24 @@
 // Part A
 
 public class VirtualPet {
-    private String name;
-    private int energyLevels;
+    private String petName;
+    private int energyLevel;
     private int happinessLevel;
     private int weight;
     private int ageYears;
     private int ageMonths;
 
     public VirtualPet(String petName){
-        this.name = name;
+        this.petName = petName;
         this.weight = 5;
     }
 
     public void setName(String n){
-        this.name = n;
+        this.petName = n;
     }
 
     public String getName(){
-        return name;
+        return petName;
     }
 
     public void setAgeYears(int ageY){
@@ -38,11 +38,11 @@ public class VirtualPet {
     }
 
     public void setEnergyLevels(int energyL){
-        this.energyLevels = energyL;
+        this.energyLevel = energyL;
     }
 
-    public int getEnergyLevels(){
-        return energyLevels;
+    public int getEnergyLevel(){
+        return energyLevel;
     }
 
     public void setHappinessLevel(int happinessL){
@@ -55,15 +55,15 @@ public class VirtualPet {
 
     public String toString(){
         String result = "";
-        result += name + "'s information: \n Energy: " + energyLevels + "\n Happiness: " + happinessLevel;
+        result += petName + "'s information: \n Energy: " + energyLevel + "\n Happiness: " + happinessLevel;
         result += "\n Weight: " + weight + "\n Age: " + ageMonths + " months and " + ageYears + " years";
         return result;
     }
 
     public void feed(){
         weight++;
-        if(energyLevels > 0 && energyLevels < 10) {
-            energyLevels++;
+        if(energyLevel > 0 && energyLevel < 10) {
+            energyLevel++;
         }
     }
 
@@ -78,12 +78,12 @@ public class VirtualPet {
     }
 
     public void updateStatus(){
-        if((happinessLevel > 0 && happinessLevel < 10) && (energyLevels > 0 && energyLevels < 10)){
+        if((happinessLevel > 0 && happinessLevel < 10) && (energyLevel > 0 && energyLevel < 10)){
             happinessLevel--;
-            energyLevels--;
+            energyLevel--;
         }
         ageMonths++;
-        if(ageMonths == 12){
+        if(ageMonths > 12){
             ageYears++;
             this.ageMonths = 0;
         }
