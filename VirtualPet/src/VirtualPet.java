@@ -68,7 +68,7 @@ public class VirtualPet {
     }
 
     public void play(){
-        if(happinessLevel > 0 && happinessLevel < 10) {
+        if(happinessLevel >= 0 && happinessLevel < 10) {
             happinessLevel++;
         }
         weight--;
@@ -82,8 +82,10 @@ public class VirtualPet {
             happinessLevel--;
             energyLevel--;
         }
+
         ageMonths++;
-        if(ageMonths > 12){
+
+        if(ageMonths >= 12){
             ageYears++;
             this.ageMonths = 0;
         }
