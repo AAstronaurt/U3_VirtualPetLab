@@ -62,23 +62,42 @@ public class VirtualPetB {
     }
 
     public void feed(Food food){
-        weight++;
-        if(energyLevel > 0 && energyLevel < 10) {
+        if(weight < 5){
+            weight = 5;
+        }
+        else{
+            weight+= food.getWeightGain();
+        }
+
+        if(food.getEnergyIncrease() >= 0 && food.getEnergyIncrease() < 10) {
             energyLevel++;
         }
-        if(happinessLevel >= 0 && happinessLevel < 10) {
+        if(food.getHappinessIncrease() >= 0 && food.getHappinessIncrease() < 10) {
             happinessLevel++;
         }
     }
 
-    public void play(){
-        if(happinessLevel >= 0 && happinessLevel < 10) {
-            happinessLevel++;
+    public boolean play(Game game){
+        if(game.isWinner()){
+            if(game.getHappinessIncr() >= 0 && game.getHappinessIncr() < 10) {
+                happinessLevel++;
+            }
+            return true;
         }
-        weight--;
-        if(weight < 5) {
-            this.weight = 5;
+        else{
+            // Don't check the game but the virtual pets thingy
+            if(game.getHappinessIncr() > 0 && game.getHappinessIncr() < 10) {
+                happinessLevel--;
+            }
         }
+
+        if(game.getWeightDecr() < 5) {
+            weight = 5;
+        }
+        else{
+            weight--;
+        }
+        return false;
     }
 
     public void updateStatus(){

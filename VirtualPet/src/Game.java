@@ -24,7 +24,7 @@ public class Game {
     }
 
     public boolean isWinner(){
-        int num = (int)(Math.random());
+        double num = (Math.random());
         if(num >= 0.50){
             return true;
         }
